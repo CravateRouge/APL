@@ -117,7 +117,7 @@ _Testé sur un Raspberry Pi sous Raspbian Jessie._
     ```
     sudo pip3 install peewee requests requests_oauthlib pytz python-dateutil beautifulsoup4
     ```
-3. Clonner le projet
+3. Cloner le projet
     ```
     git clone https://github.com/CravateRouge/APL.git
     ```
