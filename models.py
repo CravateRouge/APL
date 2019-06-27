@@ -20,8 +20,6 @@ class Annonce(Model):
     bedrooms = IntegerField(null=True)
     city = CharField()
     link = CharField()
-    picture = CharField(null=True)
-    posted2trello = BooleanField(default=False)
 
     class Meta:
         database = db

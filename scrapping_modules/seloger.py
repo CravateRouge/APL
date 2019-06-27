@@ -32,10 +32,6 @@ def search(parameters):
         _payload = {'noAudiotel': 1, 'idAnnonce': annonceNode.findtext('idAnnonce')}
         _request = requests.get("http://ws.seloger.com/annonceDetail_4.0.xml", params=_payload, headers=headers)
 
-        photos = list()
-        for photo in annonceNode.find("photos"):
-            photos.append(photo.findtext("stdUrl"))
-
         annonce, created = Annonce.create_or_get(
             id='seloger-' + annonceNode.find('idAnnonce').text,
             site='SeLoger',
@@ -51,7 +47,6 @@ def search(parameters):
             bedrooms=annonceNode.find('nbChambre').text,
             city=annonceNode.findtext('ville'),
             link=annonceNode.findtext('permaLien'),
-            picture=photos
         )
 
         if created:

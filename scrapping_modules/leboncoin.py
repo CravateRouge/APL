@@ -61,7 +61,6 @@ def search(parameters):
                 'rooms': rooms,
                 'city': _data.get('zipcode'),
                 'link': "https://www.leboncoin.fr/locations/%s.htm?ca=12_s" % _data.get('list_id'),
-                'picture': _data.get('images')
             }
         )
 

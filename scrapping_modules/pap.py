@@ -42,11 +42,6 @@ def search(parameters):
         _request = requests.get("https://ws.pap.fr/immobilier/annonces/%s" % ad['id'], headers=header)
         _data = _request.json()
 
-        photos = list()
-        if _data.get("nb_photos") > 0:
-            for photo in _data["_embedded"]['photo']:
-                photos.append(photo['_links']['self']['href'])
-
         annonce, created = Annonce.create_or_get(
             id='pap-%s' % _data.get('id'),
             site="PAP",
@@ -60,7 +55,6 @@ def search(parameters):
             bedrooms=_data.get('nb_chambres_max'),
             city=_data["_embedded"]['place'][0]['title'],
             link=_data["_links"]['desktop']['href'],
-            picture=photos
         )
 
         if created:

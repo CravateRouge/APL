@@ -2,7 +2,6 @@ import os
 import sys
 import json
 import models
-import trello_module
 import logging
 from scrapping_modules import logic_immo
 from scrapping_modules import seloger
@@ -36,7 +35,3 @@ if "leboncoin" in parameters['ad-providers']:
 if "pap" in parameters['ad-providers']:
     logging.info("Retrieving from pap")
     pap.search(parameters)
-
-# Envoi des annonces sur Trello
-posted = trello_module.post()
-logging.info("%s new ads posted to Trello" % posted)
