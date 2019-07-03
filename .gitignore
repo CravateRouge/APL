@@ -1,6 +1,5 @@
-database.sqlite
+apl.db
 trello.json
 parameters.json
 __pycache__/
 scrapping_modules/__pycache__/
-.idea/
