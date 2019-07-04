@@ -3,6 +3,7 @@ from playhouse.sqlite_ext import SqliteExtDatabase
 from gevent.select import select
 from mimify import cte
 from sqlalchemy.sql.expression import column
+from mercurial.transaction import transaction
 
 db = SqliteExtDatabase('apl.db')
 
@@ -13,20 +14,10 @@ class BaseModel(Model):
 class Annonce(BaseModel):
     # id = "pap-123456789"
     id = CharField(primary_key=True)
-    # site = [pap, lbc, logic-immo, seloger]
-    site = CharField()
-    created = DateTimeField()
-    title = CharField()
-    description = TextField(null=True)
-    telephone = TextField(null=True)
     price = FloatField()
-    charges = FloatField(null=True)
     surface = FloatField()
-    rooms = IntegerField()
-    bedrooms = IntegerField(null=True)
-    type = CharField()
-    city = CharField()
-    link = CharField()
+    postalCode = SmallIntegerField()
+    transactionType = CharField()
 
 class VilleCourtage(BaseModel):
     ville = Charfield(primary_key=True)
